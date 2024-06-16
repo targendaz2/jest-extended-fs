@@ -1,0 +1,27 @@
+{
+  "name": "jest-extended-fs",
+  "build": {
+    "context": "..",
+    "dockerfile": "./Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.vscode-pull-request-github",
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker",
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "github.vscode-github-actions",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.vscodeintellicode-completions",
+        "Orta.vscode-jest",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "ms-vscode-remote.remote-containers"
+      ]
+    }
+  },
+  "remoteUser": "node"
+}

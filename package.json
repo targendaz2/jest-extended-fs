@@ -1,0 +1,50 @@
+{
+  "name": "jest-extended-fs",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "packageManager": "yarn@4.3.0",
+  "keywords": [],
+  "homepage": "https://github.com/targendaz2/jest-extended-fs#readme",
+  "bugs": {
+    "url": "https://github.com/targendaz2/jest-extended-fs/issues"
+  },
+  "license": "Apache-2.0",
+  "files": [
+    "dist/"
+  ],
+  "author": "David G Rosenberg <david@dgrdev.com>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "repository": "github:targendaz2/jest-extended-fs",
+  "scripts": {
+    "build": "rm -rf dist && tsc --build",
+    "prepack": "yarn build",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules\" NODE_NO_WARNINGS=1 jest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.56.0",
+    "@jest/globals": "^29.7.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.14.2",
+    "@types/tmp": "^0.2.6",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.2",
+    "tmp": "^0.2.3",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.13.0"
+  },
+  "engines": {
+    "node": "^22.0.0"
+  }
+}
