@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { URL } from 'node:url';
+import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
 import { ValueError } from '../errors.js';
 
@@ -22,5 +23,18 @@ const toExist: MatcherFunction = (actual) => {
             : () => `expected "${actual}" to exist`,
     };
 };
+
+expect.extend({ toExist });
+
+declare module 'expect' {
+    interface AsymmetricMatchers {
+        /** Checks that a file path exists. */
+        toExist(): void;
+    }
+    interface Matchers<R> {
+        /** Checks that a file path exists. */
+        toExist(): R;
+    }
+}
 
 export default toExist;

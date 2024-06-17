@@ -4,20 +4,7 @@ import { URL } from 'node:url';
 import { describe, expect, test } from '@jest/globals';
 import tmp from 'tmp';
 import { ValueError } from '../../src/errors.js';
-import toExist from '../../src/matchers/toExist.js';
-
-expect.extend({ toExist });
-
-declare module 'expect' {
-    interface AsymmetricMatchers {
-        /** Checks that a file path exists. */
-        toExist(): void;
-    }
-    interface Matchers<R> {
-        /** Checks that a file path exists. */
-        toExist(): R;
-    }
-}
+import '../../src/matchers/toExist.js';
 
 describe('toExist matcher tests', () => {
     test('passes when given an existing file as a string', () => {
