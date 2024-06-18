@@ -53,7 +53,7 @@ describe('not toBeAFileContaining matcher tests', () => {
     test('fails when provided an empty string', () => {
         const tmpFile = tmp.fileSync().name;
         fs.writeFileSync(tmpFile, 'Hello, world!');
-        expect(() => expect(tmpFile).toBeAFileContaining('')).toThrowError(
+        expect(() => expect(tmpFile).not.toBeAFileContaining('')).toThrowError(
             ValueError,
         );
     });
@@ -61,7 +61,7 @@ describe('not toBeAFileContaining matcher tests', () => {
     test('fails when provided a directory', () => {
         const tmpDir = tmp.dirSync().name;
         expect(() =>
-            expect(tmpDir).toBeAFileContaining('Hello, world!'),
+            expect(tmpDir).not.toBeAFileContaining('Hello, world!'),
         ).toThrowError(FileSystemError);
     });
 });
