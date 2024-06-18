@@ -1,6 +1,5 @@
 import crypto from 'node:crypto';
 import path from 'node:path';
-import { URL } from 'node:url';
 import { describe, expect, test } from '@jest/globals';
 import tmp from 'tmp';
 import { ValueError } from '../../src/errors.js';
