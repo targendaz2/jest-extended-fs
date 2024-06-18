@@ -33,6 +33,7 @@ For example, `jest-extended-fs/matchers/toExist.js`.
 
 - `.toExist()`
 - `.toBeAFile()`
+- `.toBeAFileContaining(text)`
 - `.toBeADirectory()`
 
 ## Contributing
