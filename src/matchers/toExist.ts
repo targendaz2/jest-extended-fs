@@ -1,15 +1,11 @@
 import fs from 'node:fs';
-import { URL } from 'node:url';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
 import { ValueError } from '../errors.js';
+import { isPathLike } from '../utils.js';
 
 const toExist: MatcherFunction = (actual) => {
-    if (
-        !(typeof actual === 'string') &&
-        !(actual instanceof Buffer) &&
-        !(actual instanceof URL)
-    ) {
+    if (!isPathLike(actual)) {
         throw new TypeError('This must be of type PathLike!');
     } else if (actual === '') {
         throw new ValueError('This must not be an empty string!');
