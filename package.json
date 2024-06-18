@@ -1,7 +1,7 @@
 {
   "name": "jest-extended-fs",
   "version": "0.1.0",
-  "description": "",
+  "description": "Adds file system matchers to Jest.",
   "type": "module",
   "packageManager": "yarn@4.3.0",
   "keywords": [],
@@ -9,7 +9,7 @@
   "bugs": {
     "url": "https://github.com/targendaz2/jest-extended-fs/issues"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "files": [
     "dist/"
   ],
@@ -45,6 +45,14 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.13.0"
+  },
+  "peerDependencies": {
+    "jest": "^29.7.0"
+  },
+  "peerDependenciesMeta": {
+    "jest": {
+      "optional": false
+    }
   },
   "engines": {
     "node": "^22.0.0"
