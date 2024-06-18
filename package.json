@@ -4,7 +4,15 @@
   "description": "Adds file system matchers to Jest.",
   "type": "module",
   "packageManager": "yarn@4.3.0",
-  "keywords": [],
+  "keywords": [
+    "assert",
+    "assertions",
+    "files",
+    "filesystem",
+    "jest",
+    "test",
+    "testing"
+  ],
   "homepage": "https://github.com/targendaz2/jest-extended-fs#readme",
   "bugs": {
     "url": "https://github.com/targendaz2/jest-extended-fs/issues"
