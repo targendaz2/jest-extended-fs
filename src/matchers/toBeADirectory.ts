@@ -34,5 +34,3 @@ declare module 'expect' {
         toBeADirectory(): R;
     }
 }
-
-export default toBeADirectory;

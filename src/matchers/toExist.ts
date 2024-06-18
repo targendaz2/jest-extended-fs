@@ -32,5 +32,3 @@ declare module 'expect' {
         toExist(): R;
     }
 }
-
-export default toExist;
