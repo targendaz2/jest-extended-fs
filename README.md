@@ -44,4 +44,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-This package is licensed under the [MIT](https://github.com/targendaz2/jest-extended-fs/blob/main/LICENSE).
+This package is licensed under the [MIT License](https://github.com/targendaz2/jest-extended-fs/blob/main/LICENSE).
