@@ -7,3 +7,7 @@ export function isPathLike(data: any): data is fs.PathLike {
         data instanceof URL
     );
 }
+
+export function parseUnixFileMode(mode: number): number {
+    return Number.parseInt('0' + (mode & parseInt('777', 8)).toString(8));
+}
