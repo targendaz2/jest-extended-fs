@@ -1,11 +1,8 @@
 import { JestConfigWithTsJest } from 'ts-jest';
 
-type ReporterConfig = Exclude<
-  Required<JestConfigWithTsJest>['reporters'][number],
-  string
->;
+type Reporter = Required<JestConfigWithTsJest>['reporters'][number];
 
-const reporters: (string | ReporterConfig)[] =
+const reporters: Reporter[] =
   process.env.CI === 'true'
     ? [['github-actions', { silent: false }], 'summary']
     : ['default'];
