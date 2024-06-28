@@ -10,7 +10,7 @@ describe('toHaveMode matcher tests', () => {
         fs.writeFileSync(tmpFile, 'Hello, world!');
         fs.chmodSync(tmpFile, 0o766);
 
-        expect(tmpFile).toHaveMode(0o766);
+        expect(tmpFile).toHaveMode(0o767);
     });
 
     test('fails when the given file does not have the given mode', () => {
