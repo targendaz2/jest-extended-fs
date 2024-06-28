@@ -41,7 +41,7 @@ declare module 'expect' {
         toBeADirectoryContaining(contents: string | string[]): void;
     }
     interface Matchers<R> {
-        /** Checks that a file contains the given files and directories. */
+        /** Checks that a directory contains the given files and directories. */
         toBeADirectoryContaining(contents: string | string[]): R;
     }
 }

@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import { describe, expect, test } from '@jest/globals';
 import tmp from 'tmp';
-// import { FileSystemError, ValueError } from '../../src/errors.js';
 import '../../src/matchers/toBeAnEmptyFile.js';
 
 describe('toBeAnEmptyFile matcher tests', () => {
