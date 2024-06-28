@@ -2,21 +2,13 @@ import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
 import utils from 'jest-matcher-utils';
-import { FileSystemError, ValueError } from '../errors.js';
-import { isPathLike } from '../utils.js';
+import { assertPathIsDirectory } from '../assertions.js';
+import { ValueError } from '../errors.js';
 
 const toBeADirectoryContaining: MatcherFunction<
     [contents: string | string[]]
 > = (actual, contents) => {
-    if (!isPathLike(actual)) {
-        throw new TypeError('This must be of type PathLike!');
-    } else if (actual === '') {
-        throw new ValueError('This must not be an empty string!');
-    } else if (!fs.existsSync(actual)) {
-        throw new FileSystemError(`Path "${actual}" does not exist!`);
-    } else if (!fs.statSync(actual).isDirectory()) {
-        throw new FileSystemError(`Path "${actual}" is not a directory!`);
-    } else if (contents === '') {
+    if (contents === '') {
         throw new ValueError('The expected value must not be an empty string!');
     }
 
@@ -24,6 +16,7 @@ const toBeADirectoryContaining: MatcherFunction<
         contents = [contents];
     }
 
+    assertPathIsDirectory(actual);
     const directoryContents = fs.readdirSync(actual);
     const unmatchedContents = contents.filter(
         (item) => !directoryContents.includes(item),

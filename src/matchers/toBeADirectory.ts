@@ -1,17 +1,10 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
-import { FileSystemError, ValueError } from '../errors.js';
-import { isPathLike } from '../utils.js';
+import { assertPathExists } from '../assertions.js';
 
 const toBeADirectory: MatcherFunction = (actual) => {
-    if (!isPathLike(actual)) {
-        throw new TypeError('This must be of type PathLike!');
-    } else if (actual === '') {
-        throw new ValueError('This must not be an empty string!');
-    } else if (!fs.existsSync(actual)) {
-        throw new FileSystemError(`Path "${actual}" does not exist!`);
-    }
+    assertPathExists(actual);
 
     const pass = fs.statSync(actual).isDirectory();
     return {

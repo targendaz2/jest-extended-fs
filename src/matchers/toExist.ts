@@ -1,15 +1,10 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
-import { ValueError } from '../errors.js';
-import { isPathLike } from '../utils.js';
+import { assertIsPath } from '../assertions.js';
 
 const toExist: MatcherFunction = (actual) => {
-    if (!isPathLike(actual)) {
-        throw new TypeError('This must be of type PathLike!');
-    } else if (actual === '') {
-        throw new ValueError('This must not be an empty string!');
-    }
+    assertIsPath(actual);
 
     const pass = fs.existsSync(actual);
     return {

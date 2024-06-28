@@ -1,38 +1,37 @@
-import fs from 'node:fs';
-import { FileSystemError, ValueError } from './errors.js';
+import { PathLike } from 'node:fs';
+import { ValueError } from './errors.js';
 
-export function parseUnixFileMode(mode: number): number {
-    return Number.parseInt('0' + (mode & parseInt('777', 8)).toString(8));
-}
-
-export function isPathLike(path: any): path is fs.PathLike {
+/**
+ * Checks if the given value is {@link PathLike}.
+ * @param {*} value A value of any type.
+ * @returns {boolean} Whether the given value is PathLike.
+ */
+export function isPathLike(value: any): value is PathLike {
     return (
-        typeof path === 'string' ||
-        path instanceof Buffer ||
-        path instanceof URL
+        typeof value === 'string' ||
+        value instanceof Buffer ||
+        value instanceof URL
     );
 }
 
-export function assertPathExists(path: any): asserts path is fs.PathLike {
-    if (!isPathLike(path)) {
-        throw new TypeError('This must be of type PathLike!');
-    } else if (path === '') {
-        throw new ValueError('This must not be an empty string!');
-    } else if (!fs.existsSync(path)) {
-        throw new FileSystemError(`Path "${path}" does not exist!`);
+/**
+ * Converts a Unix file mode to an octal number.
+ * @param {number} mode A Unix file mode.
+ * @returns {number} The mode as an octal number.
+ * @throws {ValueError} If the given mode is not a valid Unix file mode.
+ */
+export function parseUnixFileMode(mode: number): number {
+    if (typeof mode !== 'number') {
+        throw new TypeError('Param "mode" must be a number.');
     }
-}
 
-export function assertPathIsFile(path: any): asserts path is fs.PathLike {
-    assertPathExists(path);
-    if (!fs.statSync(path).isFile()) {
-        throw new FileSystemError(`Path "${path}" is not a file!`);
-    }
-}
+    const parsedMode = Number.parseInt(
+        '0' + (mode & parseInt('777', 8)).toString(8),
+    );
 
-export function assertPathIsDirectory(path: any): asserts path is fs.PathLike {
-    assertPathExists(path);
-    if (!fs.statSync(path).isDirectory()) {
-        throw new FileSystemError(`Path "${path}" is not a directory!`);
+    if (parsedMode.toString().length !== 3) {
+        throw new ValueError('Param "mode" must be a valid Unix file mode.');
     }
+
+    return parsedMode;
 }
