@@ -1,7 +1,7 @@
 # jest-extended-fs
 
 ![GitHub License](https://img.shields.io/github/license/targendaz2/jest-extended-fs)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/targendaz2/jest-extended-fs)
+![GitHub Release](https://img.shields.io/github/v/release/targendaz2/jest-extended-fs?label=version)
 ![NPM Version](https://img.shields.io/npm/v/jest-extended-fs?logo=npm&logoColor=%23999999)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/targendaz2/jest-extended-fs/test.yml?logo=github&label=tests&logoColor=%23999999)
 
@@ -9,7 +9,7 @@ This package adds file system matchers to [Jest](https://jestjs.io).
 
 ## Installation
 
-This package is available on the npm registry as `jest-extended-fs`.
+This package is available on npm as [`jest-extended-fs`](https://npmjs.com/package/jest-extended-fs).
 
 ```bash
 npm install -D jest jest-extended-fs
@@ -31,14 +31,23 @@ For example, `jest-extended-fs/matchers/toExist.js`.
 
 ## Matchers
 
+### Common Matchers
+
 - `.toExist()`
-- `.toBeAFile()`
-- `.toBeAFileContaining(text)`
-- `.toBeAnEmptyFile()`
+
+### Directory Matchers
+
 - `.toBeADirectory()`
 - `.toBeADirectoryContaining(contents)`
 - `.toBeAnEmptyDirectory()`
+
+### File Matchers
+
+- `.toBeAFile()`
+- `.toBeAFileContaining(text)`
+- `.toBeAnEmptyFile()`
 - `.toHaveMode(mode)`
+- `.toBeExecutable()`
 
 ## Contributing
 

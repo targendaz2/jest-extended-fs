@@ -1,4 +1,9 @@
 import './toBeADirectory.js';
+import './toBeADirectoryContaining.js';
 import './toBeAFile.js';
 import './toBeAFileContaining.js';
+import './toBeAnEmptyDirectory.js';
+import './toBeAnEmptyFile.js';
+import './toBeExecutable.js';
 import './toExist.js';
+import './toHaveMode.js';
