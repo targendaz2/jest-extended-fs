@@ -2,9 +2,9 @@ import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
 import utils from 'jest-matcher-utils';
-import { assertPathIsFile } from '../assertions.js';
 import { ValueError } from '../errors.js';
-import { parseUnixFileMode } from '../utils.js';
+import { assertPathIsFile } from '../lib/assertions.js';
+import { parseFileMode } from '../lib/parsers.js';
 
 const toHaveMode: MatcherFunction<[mode: number]> = (actual, mode) => {
     if (!mode) {
@@ -14,7 +14,7 @@ const toHaveMode: MatcherFunction<[mode: number]> = (actual, mode) => {
     }
 
     assertPathIsFile(actual);
-    const actualMode = parseUnixFileMode(fs.statSync(actual).mode);
+    const actualMode = parseFileMode(fs.statSync(actual).mode);
     const expectedMode = Number.parseInt(mode.toString(8));
 
     const pass = actualMode === expectedMode;

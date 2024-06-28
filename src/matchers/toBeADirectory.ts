@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
-import { assertPathExists } from '../assertions.js';
+import { assertPathExists } from '../lib/assertions.js';
 
 const toBeADirectory: MatcherFunction = (actual) => {
     assertPathExists(actual);

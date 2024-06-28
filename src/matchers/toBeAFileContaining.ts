@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
 import utils from 'jest-matcher-utils';
-import { assertPathIsFile } from '../assertions.js';
 import { ValueError } from '../errors.js';
+import { assertPathIsFile } from '../lib/assertions.js';
 
 const toBeAFileContaining: MatcherFunction<[text: string]> = (actual, text) => {
     if (text === '') {
