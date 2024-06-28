@@ -36,6 +36,7 @@ For example, `jest-extended-fs/matchers/toExist.js`.
 - `.toBeAFileContaining(text)`
 - `.toBeADirectory()`
 - `.toBeADirectoryContaining(contents)`
+- `.toHaveMode(mode)`
 
 ## Contributing
 
