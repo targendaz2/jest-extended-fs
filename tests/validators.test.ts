@@ -1,8 +1,4 @@
-// import crypto from 'node:crypto';
-// import path from 'node:path';
 import { describe, expect, test } from '@jest/globals';
-// import { ValueError } from '../src/errors.js';
-// import tmp from 'tmp';
 import { isPathLike, isUnixFileMode } from '../src/lib/validators.js';
 
 describe('PathLike validation tests', () => {
