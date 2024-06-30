@@ -1,5 +1,5 @@
 import { ValueError } from '../errors.js';
-import { isUnixFileMode } from './validation.js';
+import { isUnixFileMode } from './validators.js';
 
 /**
  * Converts a file mode retrieved by Node.js to a Unix file mode.

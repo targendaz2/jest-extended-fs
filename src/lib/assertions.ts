@@ -1,6 +1,6 @@
 import fs, { PathLike } from 'node:fs';
 import { FileSystemError, ValueError } from '../errors.js';
-import { isPathLike } from './validation.js';
+import { isPathLike } from './validators.js';
 
 /**
  * Asserts that the given value is {@link PathLike}.
