@@ -1,34 +1,33 @@
-import fs from 'node:fs';
-import { describe, expect, test } from '@jest/globals';
-import tmp from 'tmp';
+import { beforeAll, describe, expect, test } from '@jest/globals';
 import '../../src/matchers/toBeAnEmptyFile.js';
+import { createTmpFile } from '../fixtures.js';
+
+let tmpFileEmpty: string;
+let tmpFileWithContent: string;
+
+beforeAll(() => {
+    tmpFileEmpty = createTmpFile();
+    tmpFileWithContent = createTmpFile({ content: 'Hello, world!' });
+});
 
 describe('toBeAnEmptyFile matcher tests', () => {
     test('passes when the given file is empty', () => {
-        const tmpFile = tmp.fileSync().name;
-
-        expect(tmpFile).toBeAnEmptyFile();
+        expect(tmpFileEmpty).toBeAnEmptyFile();
     });
 
     test('fails when the given file is not empty', () => {
-        const tmpFile = tmp.fileSync().name;
-        fs.writeFileSync(tmpFile, 'Hello, world!');
-
-        expect(() => expect(tmpFile).toBeAnEmptyFile()).toThrowError();
+        expect(() =>
+            expect(tmpFileWithContent).toBeAnEmptyFile(),
+        ).toThrowError();
     });
 });
 
 describe('not toBeAnEmptyFile matcher tests', () => {
-    test('fails when the given file is empty', () => {
-        const tmpFile = tmp.fileSync().name;
-
-        expect(() => expect(tmpFile).not.toBeAnEmptyFile()).toThrowError();
+    test('passes when the given file is not empty', () => {
+        expect(tmpFileWithContent).not.toBeAnEmptyFile();
     });
 
-    test('passes when the given file is not empty', () => {
-        const tmpFile = tmp.fileSync().name;
-        fs.writeFileSync(tmpFile, 'Hello, world!');
-
-        expect(tmpFile).not.toBeAnEmptyFile();
+    test('fails when the given file is empty', () => {
+        expect(() => expect(tmpFileEmpty).not.toBeAnEmptyFile()).toThrowError();
     });
 });

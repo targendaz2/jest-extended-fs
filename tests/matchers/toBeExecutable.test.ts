@@ -1,40 +1,42 @@
-import fs from 'node:fs';
-import { describe, expect, test } from '@jest/globals';
-import tmp from 'tmp';
+import { beforeAll, describe, expect, test } from '@jest/globals';
 import '../../src/matchers/toBeExecutable.js';
+import { createTmpFile } from '../fixtures.js';
+
+let executableTmpFile: string;
+let nonExecutableTmpFile: string;
+
+beforeAll(() => {
+    executableTmpFile = createTmpFile({
+        content: 'console.log("Hello, world!");',
+        mode: 0o766,
+    });
+
+    nonExecutableTmpFile = createTmpFile({
+        content: 'console.log("Hello, world!");',
+        mode: 0o666,
+    });
+});
 
 describe('toBeExecutable matcher tests', () => {
     test('passes when the given file is executable', () => {
-        const tmpFile = tmp.fileSync({ postfix: '.js' }).name;
-        fs.writeFileSync(tmpFile, 'console.log("Hello, world!");');
-        fs.chmodSync(tmpFile, 0o766);
-
-        expect(tmpFile).toBeExecutable();
+        expect(executableTmpFile).toBeExecutable();
     });
 
     test('fails when the given file is not executable', () => {
-        const tmpFile = tmp.fileSync({ postfix: '.js' }).name;
-        fs.writeFileSync(tmpFile, 'console.log("Hello, world!");');
-        fs.chmodSync(tmpFile, 0o666);
-
-        expect(() => expect(tmpFile).toBeExecutable()).toThrowError();
+        expect(() =>
+            expect(nonExecutableTmpFile).toBeExecutable(),
+        ).toThrowError();
     });
 });
 
 describe('not toBeExecutable matcher tests', () => {
     test('passes when the given file is not executable', () => {
-        const tmpFile = tmp.fileSync({ postfix: '.js' }).name;
-        fs.writeFileSync(tmpFile, 'console.log("Hello, world!");');
-        fs.chmodSync(tmpFile, 0o666);
-
-        expect(tmpFile).not.toBeExecutable();
+        expect(nonExecutableTmpFile).not.toBeExecutable();
     });
 
     test('fails when the given file is executable', () => {
-        const tmpFile = tmp.fileSync({ postfix: '.js' }).name;
-        fs.writeFileSync(tmpFile, 'console.log("Hello, world!");');
-        fs.chmodSync(tmpFile, 0o766);
-
-        expect(() => expect(tmpFile).not.toBeExecutable()).toThrowError();
+        expect(() =>
+            expect(executableTmpFile).not.toBeExecutable(),
+        ).toThrowError();
     });
 });
