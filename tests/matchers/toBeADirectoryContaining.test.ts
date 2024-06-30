@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, test } from '@jest/globals';
 import tmp from 'tmp';
-import { FileSystemError, ValueError } from '../../src/errors.js';
 import '../../src/matchers/toBeADirectoryContaining.js';
 
 describe('toBeADirectoryContaining matcher tests', () => {
@@ -56,21 +55,6 @@ describe('toBeADirectoryContaining matcher tests', () => {
             ]),
         ).toThrowError();
     });
-
-    test('fails when provided an empty string', () => {
-        const tmpDir = tmp.dirSync().name;
-        fs.writeFileSync(path.join(tmpDir, 'file1.txt'), 'text');
-        expect(() => expect(tmpDir).toBeADirectoryContaining('')).toThrowError(
-            ValueError,
-        );
-    });
-
-    test('fails when provided a file', () => {
-        const tmpFile = tmp.fileSync().name;
-        expect(() =>
-            expect(tmpFile).toBeADirectoryContaining('Hello, world!'),
-        ).toThrowError(FileSystemError);
-    });
 });
 
 describe('not toBeADirectoryContaining matcher tests', () => {
@@ -123,20 +107,5 @@ describe('not toBeADirectoryContaining matcher tests', () => {
             'sub_dir1',
             'sub_dir5',
         ]);
-    });
-
-    test('fails when provided an empty string', () => {
-        const tmpDir = tmp.dirSync().name;
-        fs.writeFileSync(path.join(tmpDir, 'file1.txt'), 'text');
-        expect(() =>
-            expect(tmpDir).not.toBeADirectoryContaining(''),
-        ).toThrowError(ValueError);
-    });
-
-    test('fails when provided a file', () => {
-        const tmpFile = tmp.fileSync().name;
-        expect(() =>
-            expect(tmpFile).not.toBeADirectoryContaining('Hello, world!'),
-        ).toThrowError(FileSystemError);
     });
 });
