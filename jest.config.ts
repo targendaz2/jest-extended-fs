@@ -3,7 +3,7 @@ import { JestConfigWithTsJest } from 'ts-jest';
 type Reporter = Required<JestConfigWithTsJest>['reporters'][number];
 
 const reporters: Reporter[] =
-  process.env.CI === 'true'
+  process.env.GITHUB_ACTIONS === 'true'
     ? [['github-actions', { silent: false }], 'summary']
     : ['default'];
 
