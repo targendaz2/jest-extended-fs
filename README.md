@@ -19,29 +19,19 @@ npm install -D jest jest-extended-fs
 
 ### Individual Matchers
 
-In your Jest configuration file (e.g. `jest.config.ts`), do the following for each matcher you want to enable:
+In your Jest configuration file (e.g. `jest.config.ts`), for each matcher you want to enable, add the matcher to the [`setupFilesAfterEnv`](setupFilesAfterEnv) setting.
 
-1. Import the matcher.
-
-    ```TypeScript
-    import 'jest-extended-fs/matchers/toBeAFile.js';
-    ```
-
-2. Add the matcher to the [`setupFilesAfterEnv`](setupFilesAfterEnv) setting.
-
-    ```TypeScript
-    const config = {
-        setupFilesAfterEnv = ['jest-extended-fs/matchers/toBeAFile.js']
-    };
-    ```
+```TypeScript
+const config = {
+    setupFilesAfterEnv = ['jest-extended-fs/matchers/toBeAFile.js']
+};
+```
 
 ### All Matchers
 
 Follow the "Individual Matchers" instructions above using `jest-extended-fs` instead of any specific matcher.
 
 ```TypeScript
-import 'jest-extended-fs';
-
 const config = {
     setupFilesAfterEnv = ['jest-extended-fs']
 };

@@ -38,18 +38,3 @@ export function createTmpFile(options?: {
 
     return tmpFile;
 }
-
-export function fillTmpDir(
-    tmpDir: fs.PathLike,
-    contents: Record<string, string | null>,
-): void {
-    Object.entries(contents).forEach(([fileName, fileContent]) => {
-        const filePath = path.join(tmpDir.toString(), fileName);
-
-        if (path.extname(fileName)) {
-            fs.writeFileSync(filePath, fileContent || '');
-        } else {
-            fs.mkdirSync(filePath);
-        }
-    });
-}
