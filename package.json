@@ -1,9 +1,9 @@
 {
   "name": "jest-extended-fs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adds file system matchers to Jest.",
   "type": "module",
-  "packageManager": "yarn@4.3.0",
+  "packageManager": "yarn@4.3.1",
   "keywords": [
     "assert",
     "assertions",
@@ -22,7 +22,6 @@
     "dist/"
   ],
   "author": "David G Rosenberg <david@dgrdev.com>",
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "directories": {
     "lib": "dist"
@@ -33,11 +32,9 @@
     "prepack": "yarn build",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules\" NODE_NO_WARNINGS=1 jest --passWithNoTests"
   },
-  "dependencies": {
-    "@jest/globals": "^29.7.0"
-  },
   "devDependencies": {
     "@eslint/js": "^8.56.0",
+    "@jest/globals": "^29.7.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@tsconfig/node22": "^22.0.0",
     "@types/eslint-config-prettier": "^6.11.3",
