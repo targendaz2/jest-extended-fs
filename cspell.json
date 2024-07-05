@@ -8,8 +8,20 @@
     "node_modules/"
   ],
   "dictionaryDefinitions": [],
-  "dictionaries": ["misc", "node", "npm", "typescript"],
-  "words": ["dgrdev"],
-  "ignoreWords": ["targendaz2", "trivago", "tseslint"],
+  "dictionaries": [
+    "misc",
+    "node",
+    "npm",
+    "typescript"
+  ],
+  "words": [
+    "dgrdev"
+  ],
+  "ignoreWords": [
+    "pinst",
+    "targendaz2",
+    "trivago",
+    "tseslint"
+  ],
   "import": []
 }

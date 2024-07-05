@@ -10,7 +10,7 @@ const toBeExecutable: MatcherFunction = (actual) => {
     try {
         fs.accessSync(actual, constants.X_OK);
         pass = true;
-    } catch (err) {
+    } catch {
         pass = false;
     }
 

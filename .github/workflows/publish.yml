@@ -6,6 +6,7 @@ on:
 
 env:
   NODE_ENV: production
+  HUSKY: 0
 
 jobs:
   publish:

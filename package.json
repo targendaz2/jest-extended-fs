@@ -31,6 +31,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc --build",
     "prepack": "yarn build",
+    "prepare": "node .husky/install.mjs",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules\" NODE_NO_WARNINGS=1 jest --passWithNoTests"
   },
   "devDependencies": {
@@ -44,7 +45,10 @@
     "@types/tmp": "^0.2.6",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.8.0",
+    "husky": "^9.0.11",
     "jest": "^29.7.0",
+    "pinst": "^3.0.0",
     "prettier": "^3.3.2",
     "tmp": "^0.2.3",
     "ts-jest": "^29.1.5",

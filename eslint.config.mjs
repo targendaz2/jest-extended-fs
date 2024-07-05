@@ -1,11 +1,17 @@
 // @ts-check
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 const config = tseslint.config(
   {
     ignores: ['.tmp/', 'dist/'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
   },
   eslint.configs.recommended,
   ...tseslint.configs.strict,
