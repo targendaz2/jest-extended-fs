@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
-import { assertPathIsFile } from '../lib/assertions.js';
+import { assertPathIsFile } from 'proveit';
 
 const toBeAnEmptyFile: MatcherFunction = (actual) => {
     assertPathIsFile(actual);

@@ -1,5 +1,5 @@
-import { ValueError } from '../errors.js';
-import { isUnixFileMode } from './validators.js';
+import { ValueError } from 'error-wave';
+import { isUnixFileMode } from 'proveit';
 
 /**
  * Converts a file mode retrieved by Node.js to a Unix file mode.

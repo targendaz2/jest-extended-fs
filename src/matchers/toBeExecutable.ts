@@ -1,7 +1,7 @@
 import fs, { constants } from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
-import { assertPathIsFile } from '../lib/assertions.js';
+import { assertPathIsFile } from 'proveit';
 
 const toBeExecutable: MatcherFunction = (actual) => {
     assertPathIsFile(actual);

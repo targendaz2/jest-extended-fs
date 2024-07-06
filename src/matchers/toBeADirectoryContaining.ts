@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
+import { ValueError } from 'error-wave';
 import { MatcherFunction } from 'expect';
 import utils from 'jest-matcher-utils';
-import { ValueError } from '../errors.js';
-import { assertPathIsDirectory } from '../lib/assertions.js';
+import { assertPathIsDirectory } from 'proveit';
 
 const toBeADirectoryContaining: MatcherFunction<
     [contents: string | string[]]

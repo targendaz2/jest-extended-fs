@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
+import { ValueError } from 'error-wave';
 import { MatcherFunction } from 'expect';
 import utils from 'jest-matcher-utils';
-import { ValueError } from '../errors.js';
-import { assertPathIsFile } from '../lib/assertions.js';
-import { parseFileMode } from '../lib/parsers.js';
+import { assertPathIsFile } from 'proveit';
+import { parseFileMode } from '../parsers.js';
 
 const toHaveMode: MatcherFunction<[mode: number]> = (actual, mode) => {
     if (!mode) {

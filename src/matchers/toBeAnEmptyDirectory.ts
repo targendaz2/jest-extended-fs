@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
-import { assertPathIsDirectory } from '../lib/assertions.js';
+import { assertPathIsDirectory } from 'proveit';
 
 const toBeAnEmptyDirectory: MatcherFunction = (actual) => {
     assertPathIsDirectory(actual);

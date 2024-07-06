@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, test } from '@jest/globals';
-import { ValueError } from '../../src/errors.js';
+import { ValueError } from 'error-wave';
 import '../../src/matchers/toHaveMode.js';
 import { createTmpFile } from '../fixtures.js';
 

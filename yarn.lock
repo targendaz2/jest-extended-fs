@@ -1922,6 +1922,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"error-wave@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "error-wave@npm:0.1.0"
+  checksum: 10c0/67e602a92f06ac0772277d24bd6da11752bcb8d8549e19092c1d9ab6ea55c5fd44342791befa3d371379f0f1ff821573ce6230df282774b2dc820d4c5651f817
+  languageName: node
+  linkType: hard
+
 "escalade@npm:^3.1.1, escalade@npm:^3.1.2":
   version: 3.1.2
   resolution: "escalade@npm:3.1.2"
@@ -2890,10 +2897,12 @@ __metadata:
     "@types/eslint__js": "npm:^8.42.3"
     "@types/node": "npm:^20.14.2"
     "@types/tmp": "npm:^0.2.6"
+    error-wave: "npm:^0.1.0"
     eslint: "npm:^8.56.0"
     eslint-config-prettier: "npm:^9.1.0"
     jest: "npm:^29.7.0"
     prettier: "npm:^3.3.2"
+    proveit: "npm:^0.1.0"
     tmp: "npm:^0.2.3"
     ts-jest: "npm:^29.1.5"
     ts-node: "npm:^10.9.2"
@@ -3880,6 +3889,15 @@ __metadata:
     kleur: "npm:^3.0.3"
     sisteransi: "npm:^1.0.5"
   checksum: 10c0/16f1ac2977b19fe2cf53f8411cc98db7a3c8b115c479b2ca5c82b5527cd937aa405fa04f9a5960abeb9daef53191b53b4d13e35c1f5d50e8718c76917c5f1ea4
+  languageName: node
+  linkType: hard
+
+"proveit@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "proveit@npm:0.1.0"
+  dependencies:
+    error-wave: "npm:^0.1.0"
+  checksum: 10c0/7c30dcdc90820ae84ccc17855d1f01afd1cada6559c1e3efeb039f940df6d2e404d45193419284c6ff182d4df9c0c001103dd420e60509302d4922fe1f4d1067
   languageName: node
   linkType: hard
 

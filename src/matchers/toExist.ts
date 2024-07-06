@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
 import { MatcherFunction } from 'expect';
-import { assertIsPath } from '../lib/assertions.js';
+import { assertIsPathLike } from 'proveit';
 
 const toExist: MatcherFunction = (actual) => {
-    assertIsPath(actual);
+    assertIsPathLike(actual);
 
     const pass = fs.existsSync(actual);
     return {
